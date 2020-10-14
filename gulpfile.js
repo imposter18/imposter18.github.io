@@ -1,5 +1,26 @@
 var { watch, src, dest, parallel, series } = require('gulp');
 var browserSync = require('browser-sync');
+var del = require('del');
+var plumber = require('gulp-plumber');
+var sass = require('gulp-sass');
+/*
+  Опционально можно описать и передать в Пламбер свой
+  обработчик ошибок. Например, чтобы красиво выводить их в консоль
+  или показывать системные оповещения (см. gulp-notify)
+ */
+function errorHandler(errors) {
+    console.warn('Error!');
+    console.warn(errors);
+  }
+  
+  function buildSomething() {
+    return src('src/pages/*.html')
+      // Пламбер вешается в самом начале потока
+      .pipe(plumber({ errorHandler }))
+      .pipe(someTransformation())
+      .pipe(anotherTransformation())
+      .pipe(dest('build/'));
+  }
 
 // Девсервер
 function devServer(cb) {
@@ -34,6 +55,14 @@ function buildAssets() {
   return src('src/assets/**/*.*')
     .pipe(dest('build/assets/'));
 }
+function clearBuild() {
+    return del('build/');
+  }
+  function buildStyles() {
+    return src('src/styles/*.scss')
+      .pipe(sass())
+      .pipe(dest('build/styles/'));
+  }
 
 // Отслеживание
 function watchFiles() {
@@ -41,13 +70,19 @@ function watchFiles() {
   watch('src/styles/*.css', buildStyles);
   watch('src/scripts/**/*.js', buildScripts);
   watch('src/assets/**/*.*', buildAssets);
+  watch('src/styles/*.scss', buildStyles);
 }
 
+
+
 exports.default =
-  parallel(
-    devServer,
-    series(
-      parallel(buildPages, buildStyles, buildScripts, buildAssets),
-      watchFiles
+  series(
+    clearBuild,
+    parallel(
+      devServer,
+      series(
+        parallel(buildPages, buildStyles, buildScripts, buildAssets),
+        watchFiles
+      )
     )
   );
