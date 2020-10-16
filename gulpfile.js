@@ -3,6 +3,13 @@ var browserSync = require('browser-sync');
 var del = require('del');
 var plumber = require('gulp-plumber');
 var sass = require('gulp-sass');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+var pug = require('gulp-pug');
+var imagemin = require('gulp-imagemin');
+
+
 /*
   Опционально можно описать и передать в Пламбер свой
   обработчик ошибок. Например, чтобы красиво выводить их в консоль
@@ -22,6 +29,7 @@ function errorHandler(errors) {
       .pipe(dest('build/'));
   }
 
+
 // Девсервер
 function devServer(cb) {
   var params = {
@@ -34,7 +42,14 @@ function devServer(cb) {
   browserSync.create().init(params);
   cb();
 }
+// Шаблонизатор 
 
+function buildPages() {
+  // Пути можно передавать массивами
+  return src('src/pages/*.pug')
+    .pipe(pug())
+    .pipe(dest('build/'));
+}
 // Сборка
 function buildPages() {
   return src('src/pages/*.html')
@@ -51,21 +66,41 @@ function buildScripts() {
     .pipe(dest('build/scripts/'));
 }
 
-function buildAssets() {
-  return src('src/assets/**/*.*')
+function buildAssets(cb) {
+  // Уберём пока картинки из общего потока
+  src(['src/assets/**/*.*', '!src/assets/img/**/*.*'])
     .pipe(dest('build/assets/'));
+
+  src('src/assets/img/**/*.*')
+    .pipe(imagemin())
+    .pipe(dest('build/assets/img'));
+
+  // Раньше функция что-то вовзращала, теперь добавляем вместо этого искусственый колбэк
+  // Это нужно, чтобы Галп понимал, когда функция отработала и мог запустить следующие задачи
+  cb();
 }
+
 function clearBuild() {
     return del('build/');
   }
+  // function buildStyles() {
+  //   return src('src/styles/*.scss')
+  //     .pipe(sass())
+  //     .pipe(dest('build/styles/'));
+  // }
   function buildStyles() {
     return src('src/styles/*.scss')
       .pipe(sass())
+      .pipe(postcss([
+        autoprefixer(),
+        cssnano()
+      ]))
       .pipe(dest('build/styles/'));
   }
 
 // Отслеживание
 function watchFiles() {
+  watch(['src/pages/**/*.pug', 'src/blocks/**/*.pug'], buildPages);
   watch('src/pages/*.html', buildPages);
   watch('src/styles/*.css', buildStyles);
   watch('src/scripts/**/*.js', buildScripts);
