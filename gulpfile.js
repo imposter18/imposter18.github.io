@@ -9,27 +9,6 @@ var cssnano = require('cssnano');
 var pug = require('gulp-pug');
 var imagemin = require('gulp-imagemin');
 
-
-/*
-  Опционально можно описать и передать в Пламбер свой
-  обработчик ошибок. Например, чтобы красиво выводить их в консоль
-  или показывать системные оповещения (см. gulp-notify)
- */
-function errorHandler(errors) {
-    console.warn('Error!');
-    console.warn(errors);
-  }
-  
-  function buildSomething() {
-    return src('src/pages/*.html')
-      // Пламбер вешается в самом начале потока
-      .pipe(plumber({ errorHandler }))
-      .pipe(someTransformation())
-      .pipe(anotherTransformation())
-      .pipe(dest('build/'));
-  }
-
-
 // Девсервер
 function devServer(cb) {
   var params = {
@@ -42,22 +21,37 @@ function devServer(cb) {
   browserSync.create().init(params);
   cb();
 }
-// Шаблонизатор 
 
-function buildPages() {
-  // Пути можно передавать массивами
-  return src('src/pages/*.pug')
-    .pipe(pug())
-    .pipe(dest('build/'));
-}
 // Сборка
 function buildPages() {
   return src('src/pages/*.html')
     .pipe(dest('build/'));
 }
+// Шаблонизатор 
+function buildPages1() {
+  return src('src/pages/*.pug')
+    .pipe(pug())
+    .pipe(dest('build/'));
+}
 
 function buildStyles() {
   return src('src/styles/*.css')
+    .pipe(dest('build/styles/'));
+}
+// sass
+function buildStyles() {
+  return src('src/styles/*.scss')
+    .pipe(sass())
+    .pipe(dest('build/styles/'));
+}
+// postCSS
+function buildStyles() {
+  return src('src/styles/*.scss')
+    .pipe(sass())
+    .pipe(postcss([
+      autoprefixer(),
+      cssnano()
+    ]))
     .pipe(dest('build/styles/'));
 }
 
@@ -66,6 +60,10 @@ function buildScripts() {
     .pipe(dest('build/scripts/'));
 }
 
+function buildAssets1() {
+  return src('src/font/**/*.*')
+    .pipe(dest('build/font/'));
+}
 function buildAssets(cb) {
   // Уберём пока картинки из общего потока
   src(['src/assets/**/*.*', '!src/assets/img/**/*.*'])
@@ -80,24 +78,6 @@ function buildAssets(cb) {
   cb();
 }
 
-function clearBuild() {
-    return del('build/');
-  }
-  // function buildStyles() {
-  //   return src('src/styles/*.scss')
-  //     .pipe(sass())
-  //     .pipe(dest('build/styles/'));
-  // }
-  function buildStyles() {
-    return src('src/styles/*.scss')
-      .pipe(sass())
-      .pipe(postcss([
-        autoprefixer(),
-        cssnano()
-      ]))
-      .pipe(dest('build/styles/'));
-  }
-
 // Отслеживание
 function watchFiles() {
   watch(['src/pages/**/*.pug', 'src/blocks/**/*.pug'], buildPages);
@@ -108,6 +88,27 @@ function watchFiles() {
   watch('src/styles/*.scss', buildStyles);
 }
 
+// Прамблер
+function errorHandler(errors) {
+  console.warn('Error!');
+  console.warn(errors);
+}
+// Постоянно ошибка не смог исправить 
+// function buildSomething() {
+//   return src('src/pages/*.html')
+//     // Пламбер вешается в самом начале потока
+//     .pipe(plumber({ errorHandler }))
+//     .pipe(someTransformation())
+//     .pipe(anotherTransformation())
+//     .pipe(dest('build/'));
+// }
+// exports.buildSomething = buildSomething
+
+// очистка  удаляет папку со шрифами еще не разобрался как исправить 
+function clearBuild() {
+  return del('build/' );
+}
+
 
 
 exports.default =
@@ -116,7 +117,7 @@ exports.default =
     parallel(
       devServer,
       series(
-        parallel(buildPages, buildStyles, buildScripts, buildAssets),
+        parallel( buildPages, buildStyles, buildScripts, buildAssets,buildPages1,buildAssets1),
         watchFiles
       )
     )

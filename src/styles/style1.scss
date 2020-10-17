@@ -1,36 +1,90 @@
+@font-face {
+  font-family: "Icons";
+  src: url("../font/fontello.woff2?49148615") format("woff2"),
+    url("../font/fontello.woff?49148615") format("woff");
+  font-weight: normal;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "Icons";
+  font-style: normal;
+  font-weight: normal;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+}
+
 body {
   display: grid;
   grid-template-areas:
     "header header header"
     "nav article ads"
     "footer footer footer";
-  grid-template-rows: 60px 1fr 60px;
+  grid-template-rows: 80px 1fr 70px;
   grid-template-columns: 20% 1fr 15%;
-  grid-gap: 10px;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
 }
-
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  body {
+    grid-template-areas:
+      "header"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+    grid-template-rows: 80px 1fr 70px 1fr 70px;
+    grid-template-columns: 1fr;
+  }
+}
 header,
 footer,
 article,
 nav,
 div {
-  padding: 20px;
+  padding: 1.2em;
   background: gold;
 }
-#pageHeader {
+.Header {
   grid-area: header;
 }
-#pageFooter {
+.header_icon {
+  font-family: "Icons";
+  text-align: center;
+  border-bottom: 1px solid rgba(221, 221, 221, 1);
+}
+
+.footer {
   grid-area: footer;
 }
-#mainArticle {
+.AboutMe {
   grid-area: article;
 }
-#mainNav {
+.myPic {
   grid-area: nav;
 }
-#siteAds {
+.Content {
   grid-area: ads;
+}
+
+.icon-check:before {
+  content: "\2611";
+}
+.icon-thumbs-up-alt:before {
+  content: "\f164";
+}
+.icon-thumbs-down-alt:before {
+  content: "\f165";
+}
+.header_icon:before {
+  content: "\f19c";
+}
+.icon-bank:before {
+  content: "👤";
 }
