@@ -8,7 +8,7 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var pug = require('gulp-pug');
 var imagemin = require('gulp-imagemin');
-
+// const typograf = require('gulp-typograf'); Постоянно ошибка "Не удалось найти файл объявления модуля "gulp-typograf"."
 // Девсервер
 function devServer(cb) {
   var params = {

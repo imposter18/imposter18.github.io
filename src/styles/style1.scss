@@ -24,23 +24,24 @@ body {
     "nav article ads"
     "footer footer footer";
   grid-template-rows: 80px 1fr 70px;
-  grid-template-columns: 20% 1fr 15%;
+  grid-template-columns: 30% 1fr 25%;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
 }
-/* Stack the layout on small devices/viewports. */
+
 @media all and (max-width: 575px) {
   body {
     grid-template-areas:
       "header"
+      "nav"
       "article"
       "ads"
-      "nav"
       "footer";
-    grid-template-rows: 80px 1fr 70px 1fr 70px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr;
+    text-align: center;
   }
 }
 header,
@@ -48,13 +49,15 @@ footer,
 article,
 nav,
 div {
-  padding: 1.2em;
-  background: gold;
+  padding: 0.5em;
+  // background: gold;
 }
 .Header {
   grid-area: header;
 }
 .header_icon {
+  margin-bottom: 3%;
+  padding: 15px;
   font-family: "Icons";
   text-align: center;
   border-bottom: 1px solid rgba(221, 221, 221, 1);
@@ -62,15 +65,32 @@ div {
 
 .footer {
   grid-area: footer;
+  border-top: 1px solid rgba(221, 221, 221, 1);
+  text-align: center;
 }
+
 .AboutMe {
   grid-area: article;
+}
+.AboutMe_text {
+  font-size: 1.3em;
 }
 .myPic {
   grid-area: nav;
 }
+.myPic > img {
+  max-width: 100%;
+}
 .Content {
   grid-area: ads;
+  text-align: center;
+}
+.Content > a {
+  display: block;
+  text-align: center;
+  margin: 3%;
+  font-size: 1.3em;
+  text-decoration: none;
 }
 
 .icon-check:before {
