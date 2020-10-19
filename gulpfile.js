@@ -22,31 +22,21 @@ function devServer(cb) {
   cb();
 }
 
-// Сборка
-function buildPages() {
-  return src('src/pages/*.html')
-    .pipe(dest('build/'));
-}
+// // Сборка
+// function buildPages() {
+//   return src('src/pages/*.html')
+//     .pipe(dest('build/'));
+// }
 // Шаблонизатор 
-function buildPages1() {
-  return src('src/pages/*.pug')
-    .pipe(pug())
+function buildPages() {
+  return src('src/pages/*.pug' )
+    .pipe(pug({pretty: true}))
     .pipe(dest('build/'));
 }
 
-function buildStyles() {
-  return src('src/styles/*.css')
-    .pipe(dest('build/styles/'));
-}
-// sass
-function buildStyles() {
-  return src('src/styles/*.scss')
-    .pipe(sass())
-    .pipe(dest('build/styles/'));
-}
 // postCSS
 function buildStyles() {
-  return src('src/styles/*.scss')
+  return src(['src/styles/*.scss','src/styles/*.css'])
     .pipe(sass())
     .pipe(postcss([
       autoprefixer(),
@@ -60,7 +50,7 @@ function buildScripts() {
     .pipe(dest('build/scripts/'));
 }
 
-function buildAssets1() {
+function buildFonts() {
   return src('src/font/**/*.*')
     .pipe(dest('build/font/'));
 }
@@ -81,7 +71,7 @@ function buildAssets(cb) {
 // Отслеживание
 function watchFiles() {
   watch(['src/pages/**/*.pug', 'src/blocks/**/*.pug'], buildPages);
-  watch('src/pages/*.html', buildPages);
+  // watch('src/pages/*.html', buildPages);
   watch('src/styles/*.css', buildStyles);
   watch('src/scripts/**/*.js', buildScripts);
   watch('src/assets/**/*.*', buildAssets);
@@ -117,7 +107,7 @@ exports.default =
     parallel(
       devServer,
       series(
-        parallel( buildPages, buildStyles, buildScripts, buildAssets,buildPages1,buildAssets1),
+        parallel( buildPages, buildStyles, buildScripts, buildAssets,buildFonts),
         watchFiles
       )
     )
