@@ -10,7 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-typograf": "^4.0.3"
+    "gulp-typograf": "^4.0.3",
+    "webpack-stream": "^6.1.0"
   },
   "dependencies": {
     "autoprefixer": "^10.0.1",
@@ -22,6 +23,7 @@
     "gulp-postcss": "^9.0.0",
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.1.0",
+    "jquery": "^3.5.1",
     "postcss": "^8.1.1"
   }
 }
