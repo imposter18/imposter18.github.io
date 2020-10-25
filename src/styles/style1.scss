@@ -1,5 +1,5 @@
 // @import "./parts/slick";
-
+@import "./parts/font.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
 
 body {
@@ -12,32 +12,28 @@ body {
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;
-  width: 70vw;
+  width: 80vw;
   margin: auto;
   font-family: "Roboto", sans-serif;
 }
-header h1 {
-  margin-bottom: 15px;
-}
-.header_text {
-  margin-bottom: 60px;
-}
-.header_place {
-  color: gray;
-  font-weight: 300;
-  margin-bottom: 30px;
-}
-.header_contact {
-  color: gray;
-  font-weight: 300;
-}
-
 header {
+  header h1 {
+    margin-bottom: 15px;
+  }
+  .header_text {
+    margin-bottom: 60px;
+  }
+  .header_place {
+    color: gray;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+  .header_contact {
+    color: gray;
+    font-weight: 300;
+  }
+  margin: 30px 50px;
   grid-area: header;
-}
-
-.head_slider {
-  grid-area: head_slider;
 }
 
 article {
@@ -45,51 +41,67 @@ article {
 }
 
 .head_slider {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 600px;
-  height: 450px;
-  margin: 20px;
-}
+  margin: 30px 100px;
+  display: grid;
+  grid-template-columns: 700px 100px;
+  width: 900px;
+  grid-area: head_slider;
 
-.head_slide {
-  width: 600px;
-  height: 450px;
-}
-.head_slide img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
-.slider-for {
-  max-width: 100%;
-  position: relative;
-}
+  img {
+    border-radius: 3px;
+  }
+  .slider-for {
+    width: auto;
+    height: 500px;
+    text-align: center;
+  }
+  .slider-nav {
+    margin: 5px 20px;
+    width: 170px;
+    height: 480px;
+    .head_slide {
+      margin-top: 5px;
+    }
+    .slick-list {
+      padding-top: 20px;
+    }
+  }
 
-.slider-nav {
-  margin: 2px;
-  width: 100px;
-  height: 300px;
-}
+  .head_slide img {
+    object-fit: contain;
 
-.slick-list {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slick-list {
+    width: 100%;
+    height: 100%;
+  }
 }
-.slick-arrow {
+// .slick-arrow {
+//   position: absolute;
+//   top: 45%;
+//   z-index: 10;
+//   font-size: 0;
+// }
+
+.slickNext {
   position: absolute;
-  top: 45%;
-  z-index: 10;
 }
-.slick-arrow.slick-next {
-  right: 0;
-}
+// .slick-arrow.slick-next {
+//   right: 0;
+// }
 
-.slick-arrow.slick-prev {
-  left: 0%;
-}
+// .slick-arrow.slick-next::before {
+//   font-family: icon;
+//   content: "\25b8";
+// }
 
-article {
-  background-color: black;
-}
+// .slick-arrow.slick-prev {
+//   left: 0%;
+// }
+
+// article {
+//   background-color: black;
+// }

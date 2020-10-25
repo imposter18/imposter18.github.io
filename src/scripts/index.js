@@ -3,20 +3,22 @@
 $(document).ready(function(){
     $('.slider-for').slick({
       slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
+      // slidesToScroll: 1,
+      arrows: false,
       fade: true,
-      asNavFor: '.slider-nav'
+      // centerMode: true,
+      // asNavFor: '.slider-nav'
     });
     $('.slider-nav').slick({
       slidesToShow: 3,
-      slidesToScroll: 1,
+      // slidesToScroll: 1,
       asNavFor: '.slider-for',
       dots: false,
       centerMode: true,
       focusOnSelect: true,
       vertical: true,
-      arrows: false
+      arrows: false,
+      
       
     });
   });

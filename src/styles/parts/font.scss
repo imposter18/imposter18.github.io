@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "icon";
+  src: url("../font/fontello.woff2?40041046") format("woff2"),
+    url("../font/fontello.woff?40041046") format("woff");
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "icon";
+  font-style: normal;
+  font-weight: normal;
+}
+.icon-right-dir:before {
+  content: "\25b8";
+}
+.icon-left-dir:before {
+  content: "\25c2";
+}
