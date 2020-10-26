@@ -5,39 +5,44 @@ html(lang="ru")
     title= "slick"
     link(rel="stylesheet", href="./styles/slick.css")
     link(rel="stylesheet", href="./styles/style1.css")
-    //- link(rel="stylesheet", href="./styles/slick-theme.css")
+    
   body
     header
-      h1 Репро<br>дукцио
-      .header_text Оффлайн-магазин репродукций<br> шедевров мирового искусства
-      .header_place Санкт-Петербург, <br> ул. Адмирала Черокова, 18
-      .header_contact +7 812 960-22-01 <br> shop@reproduct.io 
-    .head_slider
+      .header <h1> Репро<br>дукцио
+      .header__text Оффлайн-магазин репродукций<br> шедевров мирового искусства
+      .header__place Санкт-Петербург, <br> ул. Адмирала Черокова, 18
+      .header__contact +7 812 960-22-01 <br> shop@reproduct.io 
+    .head__slider
       button(type='button' class='next')
       button(type='button' class='prev')
-      .slider-for    
-        .head_slide
+      .head__slider-for    
+        .head__slide.slide__main
           img(src="./assets/img/ser.jpg", alt="")
-          //- .slide_info
-          //-   .slide_info-main
-          //-   .slide_info_neme
-          //-   .slide_info_size
-          //-   .slide_info-price
-        .head_slide  
+          .slide__info
+            .slide__info-main Рождение венеры, 1636
+            .slide__info-size 97 x 108 см, холст
+            .slide__info-neme Никола Пуссен
+            .slide__info-price 2400 &#8381
+        .head__slide.slide__main 
           img(src="./assets/img/ven.jpg", alt="")
-          .slide_info#nanab
-            .slide_info-main Рождение венеры, 1636
-            .slide_info_neme Никола Пуссен
-            .slide_info_size 97 x 108 см, холст
-            .slide_info-price 2400 
-        .head_slide  
+          .slide__info
+            .slide__info-main Рождение венеры, 1636
+            .slide__info-size 97 x 108 см, холст
+            .slide__info-neme Никола Пуссен
+            .slide__info-price 2400 &#8381
+        .head__slide.slide__main  
           img(src="./assets/img/jesus.jpg", alt="")
-      .slider-nav
-        .head_slide
+          .slide__info
+            .slide__info-main Рождение венеры, 1636
+            .slide__info-size 97 x 108 см, холст
+            .slide__info-neme Никола Пуссен
+            .slide__info-price 2400 &#8381
+      .head__slider-nav
+        .head__slide
           img(src="./assets/img/ser.jpg", alt="")
-        .head_slide  
+        .head__slide
           img(src="./assets/img/ven.jpg", alt="")
-        .head_slide  
+        .head__slide  
           img(src="./assets/img/jesus.jpg", alt="")
     article 7890
       

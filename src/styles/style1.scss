@@ -1,5 +1,5 @@
 // @import "./parts/slick";
-@import "./parts/font.scss";
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
 
 body {
@@ -17,7 +17,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 header {
-  header h1 {
+  .header h1 {
     margin-bottom: 15px;
   }
   .header__text {
@@ -40,7 +40,7 @@ article {
   grid-area: article;
 }
 
-.head_slider {
+.head__slider {
   margin: 30px 100px;
   position: relative;
   display: grid;
@@ -48,19 +48,24 @@ article {
   width: 900px;
   grid-area: head_slider;
 
+  .slide__main {
+    width: 700px;
+    height: 500px;
+  }
+
   img {
     border-radius: 3px;
   }
-  .slider-for {
-    width: auto;
+  .head__slider-for {
+    width: 700px;
     height: 500px;
     text-align: center;
   }
-  .slider-nav {
+  .head__slider-nav {
     margin: 5px 20px;
     width: 170px;
     height: 480px;
-    .head_slide {
+    .head__slide {
       margin-top: 5px;
       cursor: pointer;
     }
@@ -68,10 +73,12 @@ article {
       padding-top: 20px;
     }
   }
-
-  .head_slide img {
+  .head__slide-nav {
     object-fit: contain;
+  }
 
+  .head__slide img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
@@ -83,15 +90,6 @@ article {
 }
 .slick-center img {
   filter: blur(1px);
-}
-.slide_info {
-  z-index: 10;
-  position: absolute;
-  color: black;
-  font-size: 18px;
-}
-#nanab {
-  color: blanchedalmond;
 }
 .next {
   position: absolute;
@@ -121,6 +119,39 @@ article {
     cursor: pointer;
   }
 }
+
+.slide__info {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  background-color: rgba(13, 13, 13, 0.7);
+  font-size: 0.8em;
+  font-weight: 300;
+  z-index: 10;
+  position: absolute;
+  color: black;
+  top: 90%;
+  .slide__info-main {
+    color: #fff;
+    margin: 5px 10px;
+    text-align: left;
+  }
+  .slide__info-neme {
+    color: rgba(179, 179, 179, 1);
+    margin: 5px 10px;
+    text-align: left;
+  }
+  .slide__info-size {
+    color: rgba(179, 179, 179, 1);
+    margin: 5px 10px;
+    text-align: left;
+  }
+  .slide__info-price {
+    color: greenyellow;
+    margin: 5px 10px;
+    text-align: left;
+  }
+}
+
 // .slickNext {
 //   position: absolute;
 // }

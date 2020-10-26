@@ -1,5 +1,5 @@
 $(document).on('DOMContentLoaded', () => {
-    $('.slider-for').slick({
+    $('.head__slider-for').slick({
       slidesToShow: 1,
       // slidesToScroll: 1,
       prevArrow: $('.prev'),
@@ -8,10 +8,10 @@ $(document).on('DOMContentLoaded', () => {
       centerMode: true,
      
     });
-    $('.slider-nav').slick({
+    $('.head__slider-nav').slick({
       slidesToShow: 3,
       // slidesToScroll: 1,
-      asNavFor: '.slider-for',
+      asNavFor: '.head__slider-for',
       dots: false,
       centerMode: true,
       focusOnSelect: true,
@@ -21,4 +21,5 @@ $(document).on('DOMContentLoaded', () => {
       
     });
   });
+  
   

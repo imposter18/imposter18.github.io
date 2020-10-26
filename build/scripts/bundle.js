@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("$(document).on('DOMContentLoaded', () => {\r\n    $('.slider-for').slick({\r\n      slidesToShow: 1,\r\n      // slidesToScroll: 1,\r\n      prevArrow: $('.prev'),\r\n      nextArrow: $('.next'),\r\n      fade: true,\r\n      centerMode: true,\r\n     \r\n    });\r\n    $('.slider-nav').slick({\r\n      slidesToShow: 3,\r\n      // slidesToScroll: 1,\r\n      asNavFor: '.slider-for',\r\n      dots: false,\r\n      centerMode: true,\r\n      focusOnSelect: true,\r\n      vertical: true,\r\n      arrows: false,\r\n      \r\n      \r\n    });\r\n  });\r\n  \r\n\n\n//# sourceURL=webpack:///./src/scripts/index.js?");
+eval("$(document).on('DOMContentLoaded', () => {\r\n    $('.head__slider-for').slick({\r\n      slidesToShow: 1,\r\n      // slidesToScroll: 1,\r\n      prevArrow: $('.prev'),\r\n      nextArrow: $('.next'),\r\n      fade: true,\r\n      centerMode: true,\r\n     \r\n    });\r\n    $('.head__slider-nav').slick({\r\n      slidesToShow: 3,\r\n      // slidesToScroll: 1,\r\n      asNavFor: '.head__slider-for',\r\n      dots: false,\r\n      centerMode: true,\r\n      focusOnSelect: true,\r\n      vertical: true,\r\n      arrows: false,\r\n      \r\n      \r\n    });\r\n  });\r\n  \r\n  \n\n//# sourceURL=webpack:///./src/scripts/index.js?");
 
 /***/ })
 
