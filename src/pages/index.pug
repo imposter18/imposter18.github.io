@@ -13,13 +13,23 @@ html(lang="ru")
       .header_place Санкт-Петербург, <br> ул. Адмирала Черокова, 18
       .header_contact +7 812 960-22-01 <br> shop@reproduct.io 
     .head_slider
-      button(type='button' class='slickNext' value='дальше')
-      .slider-for
-        
+      button(type='button' class='next')
+      button(type='button' class='prev')
+      .slider-for    
         .head_slide
           img(src="./assets/img/ser.jpg", alt="")
+          //- .slide_info
+          //-   .slide_info-main
+          //-   .slide_info_neme
+          //-   .slide_info_size
+          //-   .slide_info-price
         .head_slide  
           img(src="./assets/img/ven.jpg", alt="")
+          .slide_info#nanab
+            .slide_info-main Рождение венеры, 1636
+            .slide_info_neme Никола Пуссен
+            .slide_info_size 97 x 108 см, холст
+            .slide_info-price 2400 
         .head_slide  
           img(src="./assets/img/jesus.jpg", alt="")
       .slider-nav
@@ -30,6 +40,7 @@ html(lang="ru")
         .head_slide  
           img(src="./assets/img/jesus.jpg", alt="")
     article 7890
+      
     
     
     

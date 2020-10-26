@@ -1,13 +1,12 @@
-
-
-$(document).ready(function(){
+$(document).on('DOMContentLoaded', () => {
     $('.slider-for').slick({
       slidesToShow: 1,
       // slidesToScroll: 1,
-      arrows: false,
+      prevArrow: $('.prev'),
+      nextArrow: $('.next'),
       fade: true,
-      // centerMode: true,
-      // asNavFor: '.slider-nav'
+      centerMode: true,
+     
     });
     $('.slider-nav').slick({
       slidesToShow: 3,
