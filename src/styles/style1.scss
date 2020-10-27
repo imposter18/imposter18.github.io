@@ -152,33 +152,7 @@ article {
   }
 }
 
-// .slickNext {
-//   position: absolute;
-// }
-// .slick-arrow {
-//   position: absolute;
-//   top: 45%;
-//   z-index: 10;
-//   font-size: 0;
-//   border: none;
-// }
-
-// .slick-arrow.slick-next {
-//   right: 0;
-// }
-// .slick-arrow.slick-next::before {
-//   content: url(../assets/icon/arr-right.svg);
-// }
-
-// // .slick-arrow.slick-next::before {
-// //   font-family: icon;
-// //   content: "\25b8";
-// // }
-
-// .slick-arrow.slick-prev {
-//   left: 0%;
-// }
-
-// article {
-//   background-color: black;
-// }
+article {
+  background-color: black;
+  display: grid;
+}
