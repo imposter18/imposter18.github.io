@@ -12,7 +12,8 @@ body {
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   height: 100vh;
-  width: 80vw;
+  max-width: 80vw;
+  // width: 1600px;
   margin: auto;
   font-family: "Roboto", sans-serif;
 }
@@ -87,10 +88,11 @@ article {
     width: 100%;
     height: 100%;
   }
+  .slick-center img {
+    filter: blur(1px);
+  }
 }
-.slick-center img {
-  filter: blur(1px);
-}
+
 .next {
   position: absolute;
   background: url(../assets/icon/right-chevron.svg);
@@ -154,5 +156,59 @@ article {
 
 article {
   background-color: black;
+  color: #fff;
   display: grid;
+  grid-template-areas:
+    "title title"
+    "slider slider"
+    "privacyPolicy form";
+}
+
+.articl__title {
+  grid-area: title;
+  h2 {
+    font-size: 2.7em;
+    margin: 22px auto 10px 40px;
+  }
+  .articl__subtitle {
+    font-size: 0.9em;
+    font-weight: 300;
+    color: gray;
+    margin-left: 40px;
+  }
+}
+.articl__slider {
+  grid-area: slider;
+  margin: auto;
+  height: 500px;
+  width: 55vw;
+  .articl__slier-for {
+    // display: flex;
+    // justify-content: space-around;
+    width: 100%;
+    height: 100%;
+  }
+  .articl__slide {
+    max-width: 300px;
+    max-height: 400px;
+    margin: 30px;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+      margin: auto 0;
+    }
+  }
+}
+
+.articl__privacyPolicy {
+  grid-area: privacyPolicy;
+}
+
+.articl__form {
+  grid-area: form;
+}
+
+.articl__privacyPolicy {
+  margin: 20px;
 }

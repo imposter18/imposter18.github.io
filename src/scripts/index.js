@@ -16,10 +16,19 @@ $(document).on('DOMContentLoaded', () => {
       centerMode: true,
       focusOnSelect: true,
       vertical: true,
-      arrows: false,
-      
-      
+      arrows: false,  
     });
+
+    $('.articl__slier-for').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      centerMode: true,
+      variableWidth: true,
+      // adaptiveHeight: true
+    });
+
   });
   
   
