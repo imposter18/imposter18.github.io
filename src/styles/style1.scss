@@ -181,23 +181,25 @@ article {
   grid-area: slider;
   margin: auto;
   height: 500px;
-  width: 55vw;
+  width: 60vw;
+
   .articl__slier-for {
-    // display: flex;
-    // justify-content: space-around;
     width: 100%;
     height: 100%;
+    text-shadow: greenyellow;
   }
   .articl__slide {
-    max-width: 300px;
-    max-height: 400px;
+    width: 350px;
+    height: 400px;
     margin: 30px;
+  }
 
-    img {
-      object-fit: contain;
-      width: 100%;
-      margin: auto 0;
-    }
+  img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    margin: auto 0;
+    box-shadow: 3px 3px red, -1em 0 0.4em olive;
   }
 }
 

@@ -17,6 +17,7 @@ $(document).on('DOMContentLoaded', () => {
       focusOnSelect: true,
       vertical: true,
       arrows: false,  
+      // focusOnSelect
     });
 
     $('.articl__slier-for').slick({
@@ -26,7 +27,7 @@ $(document).on('DOMContentLoaded', () => {
       slidesToShow: 1,
       centerMode: true,
       variableWidth: true,
-      // adaptiveHeight: true
+      
     });
 
   });
