@@ -13,8 +13,10 @@ html(lang="ru")
       .header__place Санкт-Петербург, <br> ул. Адмирала Черокова, 18
       .header__contact +7 812 960-22-01 <br> shop@reproduct.io 
     .head__slider
-      button(type='button' class='next')
-      button(type='button' class='prev')
+      button(type='button' class='next' )
+        include pug/right-chevron.svg
+      button(type='button' class='prev' )
+        include pug/left-chevron.svg
       .head__slider-for    
         .head__slide.slide__main
           img(src="./assets/img/ser.jpg", alt="")
@@ -48,13 +50,33 @@ html(lang="ru")
       .articl__title <h2> Популярное</h2>
         .articl__subtitle Нестареющая классика и бестселлеры.
       .articl__slider
+        button(type='button' class='articl__next')
+        button(type='button' class='articl__prev')
         .articl__slier-for
           .articl__slide
-            img(src="./assets/img/girl.jpg", alt="girl with pearl earring")
+            .slide-img-1
+              img(src="./assets/img/girl.jpg", alt="girl with pearl earring")
+            .articl__slide__info
+              .articl__info-main
+              .articl__info-size 97 x 108 см, холст
+              .articl__info-neme Никола Пуссен
+              .articl__info-price 2400 &#8381
           .articl__slide
-            img(src="./assets/img/hunter.jpg", alt="girl with pearl earring")
+            .slide-img-2
+              img(src="./assets/img/hunter.jpg", alt="girl with pearl earring")
+            .articl__slide__info
+              .articl__info-main
+              .articl__info-size 97 x 108 см, холст
+              .articl__info-neme Никола Пуссен
+              .articl__info-price 2400 &#8381
           .articl__slide
-            img(src="./assets/img/napoleon.jpg", alt="girl with pearl earring")
+            .slide-img-3
+              img(src="./assets/img/napoleon.jpg", alt="girl with pearl earring")
+            .articl__slide__info
+              .articl__info-main
+              .articl__info-size 97 x 108 см, холст
+              .articl__info-neme Никола Пуссен
+              .articl__info-price 2400 &#8381
       .articl__privacyPolicy 
         .artivl__privacyPolicy-head <h2> Написать нам</h2>
         .artivl__privacyPolicy-subhead Заполните форму справа<br> или отправьте письмо на shop@reproduct.io 

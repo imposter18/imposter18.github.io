@@ -1,7 +1,9 @@
+// import  "./parts/slick.min.js";
+
 $(document).on('DOMContentLoaded', () => {
     $('.head__slider-for').slick({
       slidesToShow: 1,
-      // slidesToScroll: 1,
+      
       prevArrow: $('.prev'),
       nextArrow: $('.next'),
       fade: true,
@@ -21,7 +23,9 @@ $(document).on('DOMContentLoaded', () => {
     });
 
     $('.articl__slier-for').slick({
-      dots: true,
+      dots: false,
+      prevArrow: $('.articl__prev'),
+      nextArrow: $('.articl__next'),
       infinite: true,
       speed: 300,
       slidesToShow: 1,
