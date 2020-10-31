@@ -10,7 +10,7 @@ var cssnano = require('cssnano');
 var pug = require('gulp-pug');
 var imagemin = require('gulp-imagemin');
 const webpack = require('webpack-stream');
-const typograf = require('gulp-typograf');
+// const typograf = require('gulp-typograf');
 
 // Девсервер
 function devServer(cb) {

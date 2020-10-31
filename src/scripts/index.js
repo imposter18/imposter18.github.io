@@ -1,4 +1,4 @@
-// import  "./parts/slick.min.js";
+// import  ./parts/slick.min.js
 
 $(document).on('DOMContentLoaded', () => {
     $('.head__slider-for').slick({
